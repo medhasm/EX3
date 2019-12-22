@@ -4,13 +4,13 @@ OBJECTS_MAIN=MainQ1.o
 OBJECTS_LIB=Insert.o 
 FLAGS= -Wall -g
 
-all:maini mains Stringlibary.a libary.a Insert.o MainQ1.o   main.o txtfind.o
+all:isort txtfind Stringlibary.a libary.a Insert.o MainQ1.o   main.o txtfind.o
 
-maini: $(OBJECTS_MAIN) libary.a
+isort: $(OBJECTS_MAIN) libary.a
 
-	$(CC) $(FLAGS) -o mains $(OBJECTS_MAIN) -L. ./libary.a
-mains:main.o Stringlibary.a
-	$(CC) $(FLAGS) -o maind main.o -L. ./Stringlibary.a
+	$(CC) $(FLAGS) -o isort $(OBJECTS_MAIN) -L. ./libary.a
+txtfind:main.o Stringlibary.a
+	$(CC) $(FLAGS) -o txtfind main.o -L. ./Stringlibary.a
 
 libary.a:$(OBJECTS_LIB)
 	$(AR) -rcs libary.a $(OBJECTS_LIB)
@@ -27,4 +27,4 @@ txtfind.o:txtfind.c txtfind.h
 	$(CC) $(FLAGS) -c txtfind.c
 .PHONY: clean all
 clean:
-	-rm -f *.o *.a *.so mains maini
+	-rm -f *.o *.a *.so isort txtfind
