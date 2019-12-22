@@ -14,7 +14,7 @@ int substring( char *str1, char *str2)
 
     for (i=0;i<len1&&j<len2;i++)
     {
-        if ((str1+i)==(str2+j))
+        if (str1[i]==str2[j])
             j++;
         
             else j=0;
@@ -43,7 +43,7 @@ int similar (char *s, char *t)
 
     for(int i=0;i<slen&&j<tlen;i++)
     {
-        if((s+i)==(t+j))
+        if(s[i]==t[j])
             j++;
 
         else
